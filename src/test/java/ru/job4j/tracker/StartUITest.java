@@ -1,13 +1,9 @@
 package ru.job4j.tracker;
 
-import java.time.format.DateTimeFormatter;
-
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class StartUITest {
-
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
 
     @Test
     public void whenExit() {
@@ -73,12 +69,8 @@ class StartUITest {
                         + "0. Show all items" + ln
                         + "1. Exit Program" + ln
                         + "=== Show all items ===" + ln
-                        + "Item{id=" + one.getId() + ", name='"
-                                     + one.getName() + "', created="
-                                     + one.getCreated().format(FORMATTER) + "}" + ln
-                        + "Item{id=" + two.getId() + ", name='"
-                                     + two.getName() + "', created="
-                                     + two.getCreated().format(FORMATTER) + "}" + ln
+                        + one + ln
+                        + two + ln
                         + "Menu:" + ln
                         + "0. Show all items" + ln
                         + "1. Exit Program" + ln
@@ -105,9 +97,7 @@ class StartUITest {
                         + "0. Find items by name" + ln
                         + "1. Exit Program" + ln
                         + "=== Find items by name ===" + ln
-                        + "Item{id=" + two.getId() + ", name='"
-                                     + two.getName() + "', created="
-                                     + two.getCreated().format(FORMATTER) + "}" + ln
+                        + two + ln
                         + "Menu:" + ln
                         + "0. Find items by name" + ln
                         + "1. Exit Program" + ln
@@ -134,9 +124,7 @@ class StartUITest {
                         + "0. Find item by id" + ln
                         + "1. Exit Program" + ln
                         + "=== Find item by id ===" + ln
-                        + "Item{id=" + one.getId() + ", name='"
-                                     + one.getName() + "', created="
-                                     + one.getCreated().format(FORMATTER) + "}" + ln
+                        + one + ln
                         + "Menu:" + ln
                         + "0. Find item by id" + ln
                         + "1. Exit Program" + ln
