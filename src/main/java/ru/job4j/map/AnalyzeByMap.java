@@ -8,7 +8,7 @@ public class AnalyzeByMap {
         int count = 0;
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                sum += subject.score();
+                sum += subject.getScore();
                 count++;
             }
 
@@ -22,7 +22,7 @@ public class AnalyzeByMap {
             int sum = 0;
             int count = 0;
             for (Subject subject : pupil.subjects()) {
-                sum += subject.score();
+                sum += subject.getScore();
                 count++;
             }
             labels.add(new Label(pupil.name(), (double) sum / count));
@@ -34,8 +34,8 @@ public class AnalyzeByMap {
         Map<String, Integer> map = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                int score = map.getOrDefault(subject.name(), 0);
-                map.put(subject.name(), subject.score() + score);
+                int score = map.getOrDefault(subject.getName(), 0);
+                map.put(subject.getName(), subject.getScore() + score);
             }
         }
         int count = pupils.size();
@@ -51,7 +51,7 @@ public class AnalyzeByMap {
         for (Pupil pupil : pupils) {
             int sum = 0;
             for (Subject subject : pupil.subjects()) {
-                sum += subject.score();
+                sum += subject.getScore();
             }
             labels.add(new Label(pupil.name(), sum));
         }
@@ -63,8 +63,8 @@ public class AnalyzeByMap {
         Map<String, Integer> map = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                int score = map.getOrDefault(subject.name(), 0);
-                map.put(subject.name(), subject.score() + score);
+                int score = map.getOrDefault(subject.getName(), 0);
+                map.put(subject.getName(), subject.getScore() + score);
             }
         }
         List<Label> labels = new ArrayList<>();
