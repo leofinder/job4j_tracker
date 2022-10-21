@@ -6,7 +6,7 @@ public class PasswordValidator {
             throw new IllegalArgumentException("Пароль не может быть null");
         }
         if (password.length() < 8 || password.length() > 32) {
-            return "Длина пароля должна быть от 8 до 32 символов";
+            throw new IllegalArgumentException("Длина пароля должна быть от 8 до 32 символов");
         }
         boolean isUpperChar = false;
         boolean isLowerChar = false;
@@ -22,26 +22,29 @@ public class PasswordValidator {
            } else {
                isSpecial = true;
            }
+           if (isUpperChar && isLowerChar && isDigit && isSpecial) {
+               break;
+           }
         }
         if (!isUpperChar) {
-            return "Пароль должен содержать хотя бы один символ в верхнем регистре";
+            throw new IllegalArgumentException("Пароль должен содержать хотя бы один символ в верхнем регистре");
         }
         if (!isLowerChar) {
-            return "Пароль должен содержать хотя бы один символ в нижнем регистре";
+            throw new IllegalArgumentException("Пароль должен содержать хотя бы один символ в нижнем регистре");
         }
         if (!isDigit) {
-            return "Пароль должен содержать хотя бы одну цифру";
+            throw new IllegalArgumentException("Пароль должен содержать хотя бы одну цифру");
         }
         if (!isSpecial) {
-            return "Пароль должен содержать хотя бы один спец. символ";
+            throw new IllegalArgumentException("Пароль должен содержать хотя бы один спец. символ");
         }
         String[] denylist = {"qwerty", "12345", "password", "admin", "user"};
         String passwordLowerCase = password.toLowerCase();
         for (String word : denylist) {
             if (passwordLowerCase.contains(word)) {
-                return "Пароль не должен содержать последовательность " + word;
+                throw new IllegalArgumentException("Пароль не должен содержать последовательность " + word);
             }
         }
-        return "Ok";
+        return "Password is valid";
     }
 }
