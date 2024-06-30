@@ -15,7 +15,7 @@ class StartUITest {
         Input in = new StubInput(
                 new String[] {"0"}
         );
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         List<UserAction> actions = new ArrayList<>();
         actions.add(new ExitAction());
         new StartUI(out).init(in, tracker, actions);
@@ -28,7 +28,7 @@ class StartUITest {
     @Test
     public void whenReplaceItemTestOutputIsSuccessfully() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item one = tracker.add(new Item("test1"));
         String replaceName = "New Test Name";
         Input in = new StubInput(
@@ -54,7 +54,7 @@ class StartUITest {
     @Test
     public void whenShowAllItemsTestOutputIseSuccessfully() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item one = tracker.add(new Item("test1"));
         Item two = tracker.add(new Item("test2"));
         Input in = new StubInput(
@@ -81,7 +81,7 @@ class StartUITest {
     @Test
     public void whenFindItemsByNameTestOutputIseSuccessfully() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item one = tracker.add(new Item("test1"));
         Item two = tracker.add(new Item("test2"));
         Input in = new StubInput(
@@ -107,7 +107,7 @@ class StartUITest {
     @Test
     public void whenFindItemByIdTestOutputIseSuccessfully() {
         Output out = new StubOutput();
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item one = tracker.add(new Item("test1"));
         Item two = tracker.add(new Item("test2"));
         Input in = new StubInput(
@@ -136,7 +136,7 @@ class StartUITest {
         Input in = new StubInput(
                 new String[] {"-1", "0"}
         );
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         List<UserAction> actions = new ArrayList<>();
         actions.add(new ExitAction());
         new StartUI(out).init(in, tracker, actions);
